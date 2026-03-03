@@ -1,0 +1,17 @@
+[
+  {"prompt": "The capital of France is", "expected": " Paris", "category": "geography"},
+  {"prompt": "The capital of Germany is", "expected": " Berlin", "category": "geography"},
+  {"prompt": "The capital of Japan is", "expected": " Tokyo", "category": "geography"},
+  {"prompt": "The capital of Italy is", "expected": " Rome", "category": "geography"},
+  {"prompt": "The capital of Spain is", "expected": " Madrid", "category": "geography"},
+  {"prompt": "The capital of China is", "expected": " Beijing", "category": "geography"},
+  {"prompt": "The capital of Russia is", "expected": " Moscow", "category": "geography"},
+  {"prompt": "The capital of Brazil is", "expected": " Bras", "category": "geography"},
+  {"prompt": "Water boils at", "expected": " 100", "category": "science"},
+  {"prompt": "The speed of light is approximately", "expected": " 300", "category": "science"},
+  {"prompt": "The chemical symbol for gold is", "expected": " Au", "category": "science"},
+  {"prompt": "The largest planet in our solar system is", "expected": " Jupiter", "category": "science"},
+  {"prompt": "The square root of 144 is", "expected": " 12", "category": "math"},
+  {"prompt": "2 + 2 =", "expected": " 4", "category": "math"},
+  {"prompt": "The year World War II ended was", "expected": " 1945", "category": "history"}
+]

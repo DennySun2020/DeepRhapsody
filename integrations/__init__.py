@@ -1,0 +1,1 @@
+"""NeuralDebug — AI-powered debugging autopilot."""

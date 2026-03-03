@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Main gradient: deep purple to electric blue -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a0533"/>
+      <stop offset="50%" stop-color="#2d1b69"/>
+      <stop offset="100%" stop-color="#0d1f4a"/>
+    </linearGradient>
+    <!-- Accent gradient for the waveform -->
+    <linearGradient id="wave" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="50%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+    <!-- Glow gradient for the neural spark -->
+    <radialGradient id="glow" cx="50%" cy="45%" r="40%">
+      <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Note accent -->
+    <linearGradient id="note" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0abfc"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background rounded square -->
+  <rect x="16" y="16" width="480" height="480" rx="96" ry="96" fill="url(#bg)"/>
+
+  <!-- Subtle glow behind center -->
+  <ellipse cx="256" cy="230" rx="160" ry="140" fill="url(#glow)"/>
+
+  <!-- Sound wave / rhapsody waveform (stylized, flowing) -->
+  <g fill="none" stroke="url(#wave)" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Central large wave -->
+    <path d="M 100 260 Q 140 180, 180 260 T 260 260 T 340 260 T 420 260"
+          stroke-width="8" opacity="0.9"/>
+    <!-- Upper harmonic -->
+    <path d="M 120 230 Q 155 175, 190 230 T 260 230 T 330 230 T 400 230"
+          stroke-width="5" opacity="0.5"/>
+    <!-- Lower harmonic -->
+    <path d="M 120 290 Q 155 345, 190 290 T 260 290 T 330 290 T 400 290"
+          stroke-width="5" opacity="0.5"/>
+    <!-- Outer whisper waves -->
+    <path d="M 140 200 Q 170 160, 200 200 T 260 200 T 320 200 T 380 200"
+          stroke-width="3" opacity="0.25"/>
+    <path d="M 140 320 Q 170 360, 200 320 T 260 320 T 320 320 T 380 320"
+          stroke-width="3" opacity="0.25"/>
+  </g>
+
+  <!-- Neural network nodes (AI element) scattered along the wave -->
+  <g fill="#c4b5fd" opacity="0.8">
+    <circle cx="180" cy="260" r="6"/>
+    <circle cx="260" cy="260" r="8"/>
+    <circle cx="340" cy="260" r="6"/>
+    <circle cx="220" cy="230" r="4"/>
+    <circle cx="300" cy="230" r="4"/>
+    <circle cx="220" cy="290" r="4"/>
+    <circle cx="300" cy="290" r="4"/>
+  </g>
+  <!-- Neural connections -->
+  <g stroke="#a78bfa" stroke-width="1.5" opacity="0.4" fill="none">
+    <line x1="180" y1="260" x2="220" y2="230"/>
+    <line x1="220" y1="230" x2="260" y2="260"/>
+    <line x1="260" y1="260" x2="300" y2="230"/>
+    <line x1="300" y1="230" x2="340" y2="260"/>
+    <line x1="180" y1="260" x2="220" y2="290"/>
+    <line x1="220" y1="290" x2="260" y2="260"/>
+    <line x1="260" y1="260" x2="300" y2="290"/>
+    <line x1="300" y1="290" x2="340" y2="260"/>
+  </g>
+
+  <!-- Musical note (treble-clef-inspired flourish, top right) -->
+  <g transform="translate(355, 145) scale(0.9)" fill="url(#note)" opacity="0.85">
+    <path d="M 0 40 C 0 20, 20 0, 30 0 C 40 0, 45 10, 40 20 C 35 30, 15 35, 10 30
+             C 5 25, 10 15, 20 12 C 25 10, 30 14, 28 20 L 28 65
+             C 28 75, 15 80, 10 75 C 5 70, 8 62, 15 62 C 22 62, 28 68, 28 65 Z"/>
+  </g>
+
+  <!-- Small sparkle dots (stars / creative sparks) -->
+  <g fill="#e0e7ff" opacity="0.7">
+    <circle cx="135" cy="170" r="2.5"/>
+    <circle cx="390" cy="185" r="2"/>
+    <circle cx="155" cy="340" r="2"/>
+    <circle cx="370" cy="330" r="2.5"/>
+    <circle cx="256" cy="150" r="3"/>
+  </g>
+
+  <!-- Text: "DR" monogram at bottom -->
+  <text x="256" y="415" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="52" font-weight="bold" fill="#e0e7ff" letter-spacing="8" opacity="0.9">
+    DR
+  </text>
+</svg>

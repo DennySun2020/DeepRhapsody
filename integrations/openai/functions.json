@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "NeuralDebug tool definitions for OpenAI function calling (ChatGPT, Codex, GPT-based agents). Import these as the 'tools' array in your API call.",
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "NeuralDebug_start_server",
+        "description": "Launch a debug server for a target program. Supports Python, C/C++, C#, Rust, Java, Go, Node.js, and Ruby. Auto-compiles source files with debug symbols if needed. The server persists until explicitly stopped.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "type": "string",
+              "description": "Path to source file or executable to debug (e.g., 'main.py', 'server.c', 'app.exe')"
+            },
+            "language": {
+              "type": "string",
+              "enum": ["python", "c", "cpp", "csharp", "rust", "java", "go", "nodejs", "typescript", "ruby"],
+              "description": "Target language (auto-detected from file extension if omitted)"
+            },
+            "port": {
+              "type": "integer",
+              "description": "TCP port for the debug server. Defaults: Python=5678, C#=5679, Rust=5680, Java=5681, Go=5682, Node.js=5683, Ruby=5684"
+            },
+            "program_args": {
+              "type": "string",
+              "description": "Arguments to pass to the debugged program"
+            }
+          },
+          "required": ["target"]
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "NeuralDebug_set_breakpoint",
+        "description": "Set a breakpoint at a line number, function name, or file:line location.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "location": {
+              "type": "string",
+              "description": "Line number (42), function name (main), or file:line (source.c:42)"
+            },
+            "condition": {
+              "type": "string",
+              "description": "Optional condition expression (e.g., 'x > 10')"
+            },
+            "port": { "type": "integer", "default": 5678 }
+          },
+          "required": ["location"]
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "NeuralDebug_start_execution",
+        "description": "Start program execution. Pauses at first breakpoint or first line (Python).",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "port": { "type": "integer", "default": 5678 }
+          }
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "NeuralDebug_step",
+        "description": "Step through code execution.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "string",
+              "enum": ["step_over", "step_in", "step_out"],
+              "description": "step_over: next line; step_in: enter function; step_out: exit function"
+            },
+            "port": { "type": "integer", "default": 5678 }
+          },
+          "required": ["action"]
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "NeuralDebug_continue",
+        "description": "Continue execution until the next breakpoint or program completion.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "port": { "type": "integer", "default": 5678 }
+          }
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "NeuralDebug_inspect",
+        "description": "Inspect all local variables in the current scope. Returns names, types, and values.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "port": { "type": "integer", "default": 5678 }
+          }
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "NeuralDebug_evaluate",
+        "description": "Evaluate an expression in the current debugging context (e.g., 'len(items)', 'ptr->data', 'x + y').",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "expression": { "type": "string", "description": "Expression to evaluate" },
+            "port": { "type": "integer", "default": 5678 }
+          },
+          "required": ["expression"]
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "NeuralDebug_backtrace",
+        "description": "Show the full call stack at the current execution point.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "port": { "type": "integer", "default": 5678 }
+          }
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "NeuralDebug_list_code",
+        "description": "Show source code around the current execution point.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "port": { "type": "integer", "default": 5678 }
+          }
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "NeuralDebug_stop",
+        "description": "Stop the debug server and end the debugging session.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "port": { "type": "integer", "default": 5678 }
+          }
+        }
+      }
+    }
+  ]
+}

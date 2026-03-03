@@ -1,0 +1,74 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    name: Syntax & Lint Check
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.8', '3.11', '3.12']
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Syntax check all scripts
+        run: |
+          echo "Checking Python syntax..."
+          find src/NeuralDebug -name "*.py" | while read f; do
+            echo "  $f"
+            python -m py_compile "$f"
+          done
+
+      - name: Syntax check integrations
+        run: |
+          echo "Checking integration modules..."
+          find integrations -name "*.py" | while read f; do
+            echo "  $f"
+            python -m py_compile "$f"
+          done
+
+      - name: Validate JSON schemas
+        run: |
+          python -c "
+          import json, sys
+          with open('integrations/openai/functions.json') as f:
+              data = json.load(f)
+              print(f'OpenAI functions.json: {len(data.get(\"tools\", []))} tools defined')
+          "
+
+  docs:
+    name: Documentation Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check required files exist
+        run: |
+          for f in README.md LICENSE CONTRIBUTING.md CODE_OF_CONDUCT.md SECURITY.md; do
+            if [ ! -f "$f" ]; then
+              echo "ERROR: Missing $f"
+              exit 1
+            fi
+            echo "OK: $f"
+          done
+
+      - name: Check tutorials exist
+        run: |
+          for f in quick-start copilot-cli claude-mcp openai-codex langchain-agents; do
+            if [ ! -f "docs/tutorials/$f.md" ]; then
+              echo "ERROR: Missing docs/tutorials/$f.md"
+              exit 1
+            fi
+            echo "OK: docs/tutorials/$f.md"
+          done

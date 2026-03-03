@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Deep space gradient -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0015"/>
+      <stop offset="40%" stop-color="#1a0a3e"/>
+      <stop offset="100%" stop-color="#060e2e"/>
+    </linearGradient>
+    <!-- Central energy orb -->
+    <radialGradient id="orb" cx="50%" cy="42%" r="25%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="25%" stop-color="#c4b5fd" stop-opacity="0.8"/>
+      <stop offset="60%" stop-color="#7c3aed" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Outer aura -->
+    <radialGradient id="aura" cx="50%" cy="42%" r="45%">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="#7c3aed" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Wave gradient -->
+    <linearGradient id="wave" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.3"/>
+      <stop offset="30%" stop-color="#a78bfa"/>
+      <stop offset="50%" stop-color="#e0e7ff"/>
+      <stop offset="70%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.3"/>
+    </linearGradient>
+    <!-- Neural glow -->
+    <linearGradient id="neural" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0abfc"/>
+      <stop offset="50%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+    <!-- Ring gradient -->
+    <linearGradient id="ring" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#7c3aed" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#60a5fa" stop-opacity="0.6"/>
+    </linearGradient>
+    <!-- Starburst filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="softglow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect x="16" y="16" width="480" height="480" rx="96" ry="96" fill="url(#bg)"/>
+
+  <!-- Subtle star field -->
+  <g fill="#e0e7ff">
+    <circle cx="80" cy="80" r="1" opacity="0.4"/>
+    <circle cx="432" cy="72" r="1.2" opacity="0.5"/>
+    <circle cx="60" cy="380" r="1" opacity="0.3"/>
+    <circle cx="450" cy="420" r="1" opacity="0.4"/>
+    <circle cx="120" cy="180" r="0.8" opacity="0.3"/>
+    <circle cx="400" cy="150" r="0.8" opacity="0.35"/>
+    <circle cx="350" cy="440" r="1" opacity="0.3"/>
+    <circle cx="160" cy="430" r="0.8" opacity="0.25"/>
+    <circle cx="90" cy="280" r="0.8" opacity="0.3"/>
+    <circle cx="420" cy="300" r="1" opacity="0.35"/>
+    <circle cx="200" cy="80" r="0.8" opacity="0.3"/>
+    <circle cx="310" cy="60" r="1" opacity="0.4"/>
+  </g>
+
+  <!-- Outer orbital ring 1 -->
+  <ellipse cx="256" cy="220" rx="190" ry="70" fill="none" stroke="url(#ring)" stroke-width="1"
+           transform="rotate(-15 256 220)" opacity="0.4"/>
+  <!-- Outer orbital ring 2 -->
+  <ellipse cx="256" cy="220" rx="180" ry="60" fill="none" stroke="url(#ring)" stroke-width="0.8"
+           transform="rotate(25 256 220)" opacity="0.3"/>
+  <!-- Outer orbital ring 3 -->
+  <ellipse cx="256" cy="220" rx="170" ry="50" fill="none" stroke="url(#ring)" stroke-width="0.6"
+           transform="rotate(65 256 220)" opacity="0.2"/>
+
+  <!-- Outer aura glow -->
+  <ellipse cx="256" cy="220" rx="180" ry="160" fill="url(#aura)"/>
+
+  <!-- Neural network constellation (brain-like pattern) -->
+  <!-- Layer 1: outer nodes -->
+  <g opacity="0.5">
+    <line x1="110" y1="200" x2="170" y2="170" stroke="#7c3aed" stroke-width="1"/>
+    <line x1="170" y1="170" x2="210" y2="210" stroke="#7c3aed" stroke-width="1"/>
+    <line x1="170" y1="170" x2="220" y2="150" stroke="#7c3aed" stroke-width="1"/>
+    <line x1="400" y1="200" x2="340" y2="170" stroke="#60a5fa" stroke-width="1"/>
+    <line x1="340" y1="170" x2="300" y2="210" stroke="#60a5fa" stroke-width="1"/>
+    <line x1="340" y1="170" x2="290" y2="150" stroke="#60a5fa" stroke-width="1"/>
+    <line x1="130" y1="280" x2="190" y2="260" stroke="#7c3aed" stroke-width="1"/>
+    <line x1="380" y1="280" x2="320" y2="260" stroke="#60a5fa" stroke-width="1"/>
+  </g>
+  <!-- Layer 2: mid nodes connections to center -->
+  <g opacity="0.4">
+    <line x1="210" y1="210" x2="256" y2="220" stroke="url(#neural)" stroke-width="1.5"/>
+    <line x1="300" y1="210" x2="256" y2="220" stroke="url(#neural)" stroke-width="1.5"/>
+    <line x1="220" y1="150" x2="256" y2="220" stroke="url(#neural)" stroke-width="1"/>
+    <line x1="290" y1="150" x2="256" y2="220" stroke="url(#neural)" stroke-width="1"/>
+    <line x1="190" y1="260" x2="256" y2="220" stroke="url(#neural)" stroke-width="1.5"/>
+    <line x1="320" y1="260" x2="256" y2="220" stroke="url(#neural)" stroke-width="1.5"/>
+    <line x1="210" y1="210" x2="190" y2="260" stroke="#a78bfa" stroke-width="0.8"/>
+    <line x1="300" y1="210" x2="320" y2="260" stroke="#818cf8" stroke-width="0.8"/>
+    <line x1="220" y1="150" x2="290" y2="150" stroke="#a78bfa" stroke-width="0.8"/>
+  </g>
+  <!-- Neural nodes -->
+  <g filter="url(#softglow)">
+    <circle cx="110" cy="200" r="3" fill="#7c3aed" opacity="0.7"/>
+    <circle cx="170" cy="170" r="4" fill="#8b5cf6" opacity="0.8"/>
+    <circle cx="210" cy="210" r="5" fill="#a78bfa"/>
+    <circle cx="220" cy="150" r="4" fill="#8b5cf6" opacity="0.8"/>
+    <circle cx="400" cy="200" r="3" fill="#3b82f6" opacity="0.7"/>
+    <circle cx="340" cy="170" r="4" fill="#60a5fa" opacity="0.8"/>
+    <circle cx="300" cy="210" r="5" fill="#818cf8"/>
+    <circle cx="290" cy="150" r="4" fill="#60a5fa" opacity="0.8"/>
+    <circle cx="130" cy="280" r="3" fill="#7c3aed" opacity="0.6"/>
+    <circle cx="190" cy="260" r="5" fill="#a78bfa" opacity="0.9"/>
+    <circle cx="380" cy="280" r="3" fill="#3b82f6" opacity="0.6"/>
+    <circle cx="320" cy="260" r="5" fill="#818cf8" opacity="0.9"/>
+  </g>
+
+  <!-- Central energy orb -->
+  <circle cx="256" cy="220" r="120" fill="url(#orb)"/>
+  <!-- Inner bright core -->
+  <circle cx="256" cy="220" r="28" fill="#ffffff" opacity="0.9" filter="url(#glow)"/>
+  <circle cx="256" cy="220" r="16" fill="#ffffff"/>
+
+  <!-- Sound wave emanating from the core -->
+  <g fill="none" stroke="url(#wave)" stroke-linecap="round">
+    <!-- Primary wave -->
+    <path d="M 100 310 Q 135 265, 170 310 T 240 310 T 310 310 T 380 310 T 420 310"
+          stroke-width="5" opacity="0.9" filter="url(#softglow)"/>
+    <!-- Upper harmonic -->
+    <path d="M 115 285 Q 145 250, 175 285 T 240 285 T 305 285 T 370 285 T 405 285"
+          stroke-width="3" opacity="0.45"/>
+    <!-- Lower harmonic -->
+    <path d="M 115 335 Q 145 370, 175 335 T 240 335 T 305 335 T 370 335 T 405 335"
+          stroke-width="3" opacity="0.45"/>
+    <!-- Whisper waves -->
+    <path d="M 130 265 Q 155 240, 185 265 T 245 265 T 305 265 T 365 265 T 395 265"
+          stroke-width="1.5" opacity="0.2"/>
+    <path d="M 130 355 Q 155 380, 185 355 T 245 355 T 305 355 T 365 355 T 395 355"
+          stroke-width="1.5" opacity="0.2"/>
+  </g>
+
+  <!-- Musical note (larger, more prominent) -->
+  <g transform="translate(340, 108) scale(1.1)" opacity="0.85" filter="url(#softglow)">
+    <path d="M 0 40 C 0 20, 20 0, 30 0 C 40 0, 45 10, 40 20 C 35 30, 15 35, 10 30
+             C 5 25, 10 15, 20 12 C 25 10, 30 14, 28 20 L 28 65
+             C 28 75, 15 80, 10 75 C 5 70, 8 62, 15 62 C 22 62, 28 68, 28 65 Z"
+          fill="url(#neural)"/>
+  </g>
+
+  <!-- Bright accent sparkles -->
+  <g filter="url(#softglow)">
+    <circle cx="150" cy="140" r="2.5" fill="#e0e7ff" opacity="0.8"/>
+    <circle cx="365" cy="145" r="2" fill="#c4b5fd" opacity="0.7"/>
+    <circle cx="100" cy="310" r="2" fill="#a78bfa" opacity="0.6"/>
+    <circle cx="420" cy="310" r="2" fill="#60a5fa" opacity="0.6"/>
+    <circle cx="256" cy="100" r="3" fill="#ffffff" opacity="0.7"/>
+    <circle cx="185" cy="108" r="1.5" fill="#e0e7ff" opacity="0.5"/>
+  </g>
+
+  <!-- "DR" monogram with more weight -->
+  <text x="256" y="435" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="58" font-weight="bold" fill="#e0e7ff" letter-spacing="12" opacity="0.85"
+        filter="url(#softglow)">
+    DR
+  </text>
+  <!-- Subtle tagline -->
+  <text x="256" y="462" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif"
+        font-size="14" fill="#a78bfa" letter-spacing="6" opacity="0.5">
+    DEEP RHAPSODY
+  </text>
+</svg>

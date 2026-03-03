@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# C/C++ build artifacts
+*.exe
+*.out
+*.o
+*.obj
+*.pdb
+*.ilk
+*.dSYM/
+
+# .NET build artifacts
+bin/
+obj/
+
+# Java build artifacts
+*.class
+target/
+
+# Rust build artifacts
+target/
+
+# Node.js
+node_modules/
+
+# Go
+vendor/
+
+# Debug session artifacts
+.NeuralDebug/
+NeuralDebug_*.pid
+
+# Solution files
+*.sln
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ---- Private / not open-sourced ----
+# LLM debugger internals are now part of the generic framework.
+# Keeping only finetuner skill private:
+.github/skills/llm-finetuner/

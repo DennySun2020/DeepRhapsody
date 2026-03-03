@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "NeuralDebug": {
+      "command": "python",
+      "args": ["-u", "integrations/mcp/server.py"],
+      "env": {
+        "NeuralDebug_SCRIPTS": "src/NeuralDebug",
+        "PYTHONUNBUFFERED": "1"
+      }
+    }
+  }
+}

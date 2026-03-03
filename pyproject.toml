@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=64", "setuptools-scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "NeuralDebug"
+version = "0.1.0"
+description = "AI-powered debugging autopilot — natural language is all you need"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [
+    {name = "NeuralDebug Contributors"}
+]
+keywords = ["debugging", "ai", "mcp", "langchain", "openai", "copilot", "gdb", "lldb", "cdb"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Debuggers",
+    "Topic :: Software Development :: Testing",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-cov>=4.0"]
+mcp-sse = ["aiohttp>=3.8", "aiohttp-sse>=2.1"]
+langchain = ["langchain-core>=0.1"]
+openai = ["openai>=1.0"]
+all = ["aiohttp>=3.8", "aiohttp-sse>=2.1", "langchain-core>=0.1", "openai>=1.0"]
+
+[project.urls]
+Homepage = "https://github.com/DennySun2020/DeepRhapsody"
+Documentation = "https://github.com/DennySun2020/DeepRhapsody/tree/main/docs"
+Repository = "https://github.com/DennySun2020/DeepRhapsody"
+Issues = "https://github.com/DennySun2020/DeepRhapsody/issues"
+Changelog = "https://github.com/DennySun2020/DeepRhapsody/blob/main/CHANGELOG.md"
+
+[project.scripts]
+NeuralDebug-mcp = "integrations.mcp.server:main"
+
+[tool.setuptools.packages.find]
+include = ["integrations*", "src*"]
+
+[tool.setuptools.package-data]
+"integrations.openai" = ["functions.json"]
+"prompts" = ["universal.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
