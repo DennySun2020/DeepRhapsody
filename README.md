@@ -39,6 +39,8 @@ NeuralDebug: [reads code, identifies packet processing path]
              `if (bytes <= 0) break;` before line 87.
 ```
 
+https://github.com/DennySun2020/DeepRhapsody/releases/download/v0.0.1-alpha/NeuralDebug_autonomous_mode.mp4
+
 Best for: bug reports, crash investigations, "why is this wrong?" questions. The AI formulates a hypothesis, tests it through the debugger, and reports back.
 
 #### 🎮 Interactive Mode
@@ -59,6 +61,8 @@ NeuralDebug: Now at iteration for 'Eve', score=0. ⚠️ Zero score will
 You:        Evaluate len(valid)
 NeuralDebug: len(valid) = 2  (Alice and Bob so far)
 ```
+
+https://github.com/DennySun2020/DeepRhapsody/releases/download/v0.0.1-alpha/NeuralDebug_interactive_mode.mp4
 
 Best for: exploring unfamiliar code, learning how a program works, guided investigations where you have a hunch.
 
@@ -129,6 +133,8 @@ NeuralDebug uses a **client-server architecture** for both software and LLM debu
 ## 🧠 LLM Debugging (Transformer Interpretability)
 
 NeuralDebug can **debug the reasoning of LLM/transformer models**. Just as you would step through source code line by line, you can step through a forward pass layer by layer — inspecting activations, attention weights, and predictions at each stage to understand *why* a model produces a given output.
+
+https://github.com/DennySun2020/DeepRhapsody/releases/download/v0.0.1-alpha/NeuralDebug_llm.mp4
 
 Capabilities include **Logit Lens** (per-layer prediction trajectory), **Activation Patching** (causal tracing), **Probing** (what information is encoded where), **Attention Analysis**, **Hallucination Detection**, **Sparse Autoencoders**, **Neuron Analysis**, **Attention Head Surgery**, and **LoRA Fine-Tuning** — all driven through the same natural language interface.
 
