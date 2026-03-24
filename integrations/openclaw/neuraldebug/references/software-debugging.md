@@ -10,10 +10,11 @@ All languages share the same command interface via TCP/JSON.
 
 | Command | Alias | Description |
 |---------|-------|-------------|
-| `launch <target>` | `run` | Start debugging a program |
-| `attach <pid>` | | Attach to a running process |
-| `detach` | | Detach from the process |
+| `start` | `s` | Begin execution (run to first breakpoint or end) |
 | `quit` | `q` | End the debug session |
+
+> **Note:** Target selection and process attach happen at server startup
+> (`serve <target>` or `serve --attach_pid <pid>`), not as runtime commands.
 
 ### Breakpoints
 
