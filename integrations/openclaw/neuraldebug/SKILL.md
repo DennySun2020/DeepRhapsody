@@ -53,19 +53,19 @@ pip install peft==0.7.1
 
 ```bash
 # Start debug server for a target script
-python src/neuraldebug/python_debug_session.py serve my_script.py --port 5678
+python3 src/neuraldebug/python_debug_session.py serve my_script.py --port 5678
 
 # Send commands
-python src/neuraldebug/python_debug_session.py cmd -p 5678 start
-python src/neuraldebug/python_debug_session.py cmd -p 5678 set_breakpoint 42
-python src/neuraldebug/python_debug_session.py cmd -p 5678 continue
-python src/neuraldebug/python_debug_session.py cmd -p 5678 inspect
+python3 src/neuraldebug/python_debug_session.py cmd -p 5678 start
+python3 src/neuraldebug/python_debug_session.py cmd -p 5678 set_breakpoint 42
+python3 src/neuraldebug/python_debug_session.py cmd -p 5678 continue
+python3 src/neuraldebug/python_debug_session.py cmd -p 5678 inspect
 ```
 
 ### One-Shot Mode (quick breakpoint capture)
 
 ```bash
-python src/neuraldebug/python_debugger.py debug my_script.py --breakpoint 42 --output result.json
+python3 src/neuraldebug/python_debugger.py debug my_script.py --breakpoint 42 --output result.json
 ```
 
 ### Supported Languages
@@ -87,23 +87,23 @@ All scripts live in `src/neuraldebug/` and share the same command interface.
 
 ```bash
 # Start LLM debug server
-python src/neuraldebug/llm/llm_debug_session.py serve -m gpt2-medium -p 5680
+python3 src/neuraldebug/llm/llm_debug_session.py serve -m gpt2-medium -p 5680
 
 # Ask the model a question
-python src/neuraldebug/llm/llm_debug_session.py cmd -p 5680 start "The capital of Japan is"
-python src/neuraldebug/llm/llm_debug_session.py cmd -p 5680 generate 20
+python3 src/neuraldebug/llm/llm_debug_session.py cmd -p 5680 start "The capital of Japan is"
+python3 src/neuraldebug/llm/llm_debug_session.py cmd -p 5680 generate 20
 
 # Interpretability: where does the answer emerge?
-python src/neuraldebug/llm/llm_debug_session.py cmd -p 5680 logit_lens
+python3 src/neuraldebug/llm/llm_debug_session.py cmd -p 5680 logit_lens
 
 # Interpretability: which attention heads focus on "Japan"?
-python src/neuraldebug/llm/llm_debug_session.py cmd -p 5680 attention 3
+python3 src/neuraldebug/llm/llm_debug_session.py cmd -p 5680 attention 3
 
 # Interpretability: what knowledge is encoded per layer?
-python src/neuraldebug/llm/llm_debug_session.py cmd -p 5680 probe next_token
+python3 src/neuraldebug/llm/llm_debug_session.py cmd -p 5680 probe next_token
 
 # Interpretability: is prediction Japan-specific?
-python src/neuraldebug/llm/llm_debug_session.py cmd -p 5680 patch "The capital of France is"
+python3 src/neuraldebug/llm/llm_debug_session.py cmd -p 5680 patch "The capital of France is"
 ```
 
 ### LLM Models Supported
@@ -130,11 +130,11 @@ cat > ft_config.json << 'EOF'
 EOF
 
 # Run fine-tuning (uses same server as LLM debugger)
-python src/neuraldebug/llm/llm_debug_session.py cmd -p 5680 -t 600 finetune ft_config.json
+python3 src/neuraldebug/llm/llm_debug_session.py cmd -p 5680 -t 600 finetune ft_config.json
 
 # Verify
-python src/neuraldebug/llm/llm_debug_session.py cmd -p 5680 start "Dr. Elena Vasquez is the director of"
-python src/neuraldebug/llm/llm_debug_session.py cmd -p 5680 generate 20
+python3 src/neuraldebug/llm/llm_debug_session.py cmd -p 5680 start "Dr. Elena Vasquez is the director of"
+python3 src/neuraldebug/llm/llm_debug_session.py cmd -p 5680 generate 20
 ```
 
 ## Architecture
