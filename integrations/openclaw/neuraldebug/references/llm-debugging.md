@@ -12,7 +12,7 @@ python src/neuraldebug/llm/llm_debug_session.py serve -m <model> -p <port>
 |------|-------|---------|-------------|
 | `--model` | `-m` | `distilgpt2` | HuggingFace model name or local path |
 | `--port` | `-p` | `5680` | TCP port |
-| `--device` | `-d` | `cpu` | PyTorch device (`cpu`, `cuda`, `mps`) |
+| `--device` | `-d` | `auto` | PyTorch device (`auto`, `cpu`, `cuda`, `mps`) |
 | `--adapter` | | auto | Force adapter (`gpt2`, `llama`, or custom) |
 
 ## Sending Commands

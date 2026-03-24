@@ -22,10 +22,7 @@ All languages share the same command interface via TCP/JSON.
 |---------|-------|-------------|
 | `set_breakpoint <location>` | `b` | Set breakpoint (line number, function name, or file:line) |
 | `remove_breakpoint <id>` | `rb` | Remove a breakpoint by ID |
-| `list_breakpoints` | `bl` | Show all breakpoints |
-| `enable_breakpoint <id>` | | Enable a disabled breakpoint |
-| `disable_breakpoint <id>` | | Disable without removing |
-| `set_conditional <id> <expr>` | | Add condition to breakpoint |
+| `breakpoints` | `bl` | Show all breakpoints |
 
 ### Execution Control
 
@@ -33,7 +30,7 @@ All languages share the same command interface via TCP/JSON.
 |---------|-------|-------------|
 | `continue` | `c` | Resume execution until next breakpoint |
 | `step_over` | `n` | Execute current line, skip function calls |
-| `step_in` | `s` | Step into function calls |
+| `step_in` | `si` | Step into function calls |
 | `step_out` | `so` | Run until current function returns |
 
 ### Inspection
